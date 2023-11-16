@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchaves <tchaves@students.42.rio>          +#+  +:+       +#+        */
+/*   By: tchaves <tchaves@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:54:36 by tchaves           #+#    #+#             */
-/*   Updated: 2023/11/15 17:54:36 by tchaves          ###   ########.fr       */
+/*   Updated: 2023/11/16 17:07:30 by tchaves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,21 @@
 
 void	transform(int pid, char sign)
 {
-	int	i = 7;
-	int	bit;
-	int	signal;
+	int	i;
 
-	bit = (sign >> i) & 1;
 	i = 7;
-	while (i >= 0) 
+	while (i >= 0)
 	{
-        	if (bit == 1) 
-		{
-            		signal = SIGUSR1;
-       		} 		
-		else 
-		{
-			signal = SIGUSR2;
-		}
-
-		kill(pid, signal);
+		if (sign & (1 << i))
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
 		usleep(200);
 		i--;
 	}
 }
 
-int	main(int ac, int **av)
+int	main(int ac, char **av)
 {
 	int	i;
 	int	pid;
@@ -45,7 +36,7 @@ int	main(int ac, int **av)
 	i = 0;
 	if (ac != 3)
 	{
-		ft_printf("Check the syntax: ./client + <server-pid> + <text-to-send>\n");
+		ft_printf("Check the syntax: ./client server-pid text-to-send\n");
 		return (0);
 	}
 	if (kill(ft_atoi(av[1]), 0) == -1)
