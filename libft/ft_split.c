@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchaves <tchaves@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tchaves <tchaves@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:47:28 by tchaves           #+#    #+#             */
-/*   Updated: 2023/10/25 14:55:51 by tchaves          ###   ########.fr       */
+/*   Updated: 2023/11/21 09:43:00 by tchaves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	int		index;
 	char	**split;
-	
-	if (!s)
-		return (NULL);
+
 	split = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!split)
 		return (NULL);

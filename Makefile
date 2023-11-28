@@ -6,7 +6,7 @@
 #    By: tchaves <tchaves@student.42.rio>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 16:13:57 by tchaves           #+#    #+#              #
-#    Updated: 2023/11/16 16:14:21 by tchaves          ###   ########.fr        #
+#    Updated: 2023/11/17 14:34:28 by tchaves          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,14 +43,6 @@ $(CLIENT): $(NAMELIB) $(PRINTLIB)
 
 $(SERVER): $(NAMELIB) $(PRINTLIB)
 	gcc -Wall -Wextra -Werror server.c $(NAMELIB) $(PRINTLIB) -o $(SERVER)
-
-$(B_CLIENT): $(NAMELIB) $(PRINTLIB)
-	gcc -Wall -Wextra -Werror $(B_CLIENT) $(NAMELIB) $(PRINTLIB) -o $(CLIENT)
-
-$(B_SERVER): $(NAMELIB) $(PRINTLIB)
-	gcc -Wall -Wextra -Werror $(B_SERVER) $(NAMELIB) $(PRINTLIB) -o $(SERVER)
-
-bonus: $(B_SERVER) $(B_CLIENT) $(NAMELIB) $(PRINTLIB)
 
 clean:
 	@$(MAKE) fclean -C ./libft && $(MAKE) fclean -C ./ftprintf

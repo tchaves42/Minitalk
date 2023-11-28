@@ -6,7 +6,7 @@
 /*   By: tchaves <tchaves@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:15:39 by tchaves           #+#    #+#             */
-/*   Updated: 2023/11/16 17:04:17 by tchaves          ###   ########.fr       */
+/*   Updated: 2023/11/21 09:43:14 by tchaves          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,11 @@ int	main(void)
 	int	pid;
 
 	pid = getpid();
-	ft_printf("\n\t%s███╗   ███╗██╗███╗   ██╗██╗████████╗ █████╗ ██╗     ██╗██╗%s\n", GREEN, RESET);
-	ft_printf("\t%s██╔████╔██║██║██╔██╗ ██║██║   ██║   ███████║██║     █████╔╝%s\n", GREEN, RESET);
-	ft_printf("\t%s██║╚██╔╝██║██║██║╚██╗██║██║   ██║   ██╔══██║██║     ██╔═██╗%s\n", GREEN, RESET);
-	ft_printf("\t%s██║ ╚═╝ ██║██║██║ ╚████║██║   ██║   ██║  ██║███████╗██║  ██╗%s\n", GREEN, RESET);
-	ft_printf("\t%s╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝%s\n", GREEN, RESET);
-	ft_printf("\t\t\t\t%sBy: tchaves %s\n", GREEN, RESET);
-	ft_printf("\t\t\tThe server pid is: %i\n", pid, GREEN, RESET);
+	ft_printf("\t\t\tThe server pid is: %i\n", pid);
 	while (1)
 	{
 		signal(SIGUSR1, check_signal);
 		signal(SIGUSR2, check_signal);
 		pause();
 	}
-	printf("mensagem enviada\n");
 }
